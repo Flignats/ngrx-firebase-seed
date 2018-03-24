@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-title>User Register</mat-card-title>
+  <mat-card-content>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="form" (ngSubmit)="submit()">
+
+      <mat-form-field>
+        <input type="email" matInput placeholder="Your email" formControlName="email">
+        <mat-hint>Please enter a valid email.</mat-hint>
+        <mat-error>
+          <app-validation-message [control]="form.controls['email']"></app-validation-message>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="password" matInput placeholder="Your password" formControlName="password">
+        <mat-hint>Please enter your password.</mat-hint>
+        <mat-error>
+          <app-validation-message [control]="form.controls['password']"></app-validation-message>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="password" matInput placeholder="Confirm your password" formControlName="confirmPassword">
+        <mat-hint>Please
+          <strong>confirm</strong> your password.</mat-hint>
+        <mat-error>
+          <app-validation-message [control]="form.controls['confirmPassword']"></app-validation-message>
+        </mat-error>
+      </mat-form-field>
+
+      <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Submit</button>
+
+      <mat-error *ngIf="errorMessage">
+        {{ errorMessage }}
+      </mat-error>
+
+    </form>
+  </mat-card-content>
+</mat-card>

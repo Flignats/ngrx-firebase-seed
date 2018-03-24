@@ -1,0 +1,5 @@
+<app-register-form      
+    [pending]="pending | async"
+    [errorMessage]="error | async"
+    (submitted)="onSubmit($event)">
+</app-register-form>
